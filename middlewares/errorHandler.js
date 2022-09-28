@@ -1,8 +1,3 @@
-// error를 콘솔로그에 출력합니다
-const errorLogger = (err, req, res, next) => {
-  next(err);
-};
-
 const errorResponder = (err, req, res, next) => {
   const { statusCode, message, isCustom } = err;
   // 코드에서 캐치한 에러는 statusCode와 message를 반환 합니다.
@@ -15,4 +10,4 @@ const errorResponder = (err, req, res, next) => {
   next();
 };
 
-module.exports = { errorLogger, errorResponder };
+module.exports = { errorResponder };
