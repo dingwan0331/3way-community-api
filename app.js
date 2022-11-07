@@ -9,7 +9,7 @@ const YAML = require("yamljs");
 const swaggerFile = YAML.load("./swagger/swagger-output.yaml");
 const { PORT } = require("./config/config.js");
 const { sequelize } = require("./model");
-const { errorResponder } = require("./middlewares/errorHandler");
+const { responseError } = require("./middlewares/response-error");
 
 /**
  * express middleware를 사용합니다.
@@ -44,7 +44,7 @@ function registerRouters(app) {
 
 // error 처리 미들웨어를 추가합니다.
 function errorHandler(app) {
-  app.use(errorResponder);
+  app.use(responseError);
 
   return app;
 }

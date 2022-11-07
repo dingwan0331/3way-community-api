@@ -1,4 +1,4 @@
-const errorResponder = (err, req, res, next) => {
+const responseError = (err, req, res, next) => {
   const { statusCode, message, isCustom } = err;
   // 코드에서 캐치한 에러는 statusCode와 message를 반환 합니다.
   if (isCustom) {
@@ -10,4 +10,4 @@ const errorResponder = (err, req, res, next) => {
   next();
 };
 
-module.exports = { errorResponder };
+module.exports = { responseError };
